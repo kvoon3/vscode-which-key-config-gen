@@ -1,0 +1,93 @@
+{
+  "publisher": "kvoon",
+  "name": "which-key-config-gen",
+  "displayName": "Which key Config Generator",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.3.0",
+  "description": "Generate vscode whichkey config according to your Vim keymap",
+  "author": "Kevin Kwong <kvoon@duck.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/kvoon3",
+  "homepage": "https://github.com/kvoon3/vscode-whichkey-config-gen#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kvoon3/vscode-whichkey-config-gen"
+  },
+  "bugs": {
+    "url": "https://github.com/kvoon3/vscode-whichkey-config-gen/issues"
+  },
+  "categories": [
+    "Keymaps",
+    "Other"
+  ],
+  "main": "./dist/index.js",
+  "icon": "res/icon.png",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "title": "Show Generated Which Key",
+        "command": "whichkeyConfigGen.show"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Which key Config Generator",
+      "properties": {
+        "whichkeyConfigGen.bindingOverrides": {
+          "type": "array",
+          "items": "object",
+          "default": []
+        },
+        "whichkeyConfigGen.bindings": {
+          "type": "array",
+          "items": "object",
+          "default": []
+        }
+      }
+    }
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/kvoon3"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --external vscode",
+    "dev": "nr build --watch",
+    "lint": "eslint .",
+    "vscode:prepublish": "nr build",
+    "publish": "vsce publish --no-dependencies",
+    "pack": "vsce package --no-dependencies",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp && nr publish",
+    "update": "nlx vscode-ext-gen --output ./src/generated/meta.ts --scope whichkeyConfigGen"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.21.1",
+    "@antfu/ni": "^0.21.12",
+    "@types/node": "^20.14.2",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^2.27.0",
+    "bumpp": "^9.4.1",
+    "eslint": "^9.5.0",
+    "esno": "^4.7.0",
+    "fast-glob": "^3.3.2",
+    "pnpm": "^9.3.0",
+    "reactive-vscode": "0.2.0-beta.9",
+    "rimraf": "^5.0.7",
+    "tsup": "^8.1.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.3.1",
+    "vitest": "^1.6.0",
+    "vscode": "^1.1.37"
+  }
+}

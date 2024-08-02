@@ -1,0 +1,23 @@
+[
+  {
+    "key": "c",
+    "type": "bindings",
+    "bindings": [
+      {
+        "key": "p",
+        "type": "command",
+        "command": "workbench.action.editor.previousChange"
+      },
+      {
+        "key": "N",
+        "type": "command",
+        "command": "workbench.action.editor.previousChange"
+      },
+      {
+        "key": "n",
+        "type": "command",
+        "command": "workbench.action.editor.nextChange"
+      }
+    ]
+  }
+]

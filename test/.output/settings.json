@@ -1,0 +1,65 @@
+[
+  {
+    "key": "c",
+    "type": "bindings",
+    "bindings": [
+      {
+        "key": "p",
+        "type": "command",
+        "command": "workbench.action.editor.previousChange"
+      },
+      {
+        "key": "N",
+        "type": "command",
+        "command": "workbench.action.editor.previousChange"
+      },
+      {
+        "key": "n",
+        "type": "command",
+        "command": "workbench.action.editor.nextChange"
+      }
+    ]
+  },
+  {
+    "key": "e",
+    "type": "bindings",
+    "bindings": [
+      {
+        "key": "n",
+        "type": "command",
+        "command": "go-to-next-error.next.error"
+      },
+      {
+        "key": "N",
+        "type": "command",
+        "command": "go-to-next-error.prev.error"
+      },
+      {
+        "key": "p",
+        "type": "command",
+        "command": "go-to-next-error.prev.error"
+      }
+    ]
+  },
+  {
+    "key": "w",
+    "type": "bindings",
+    "bindings": [
+      {
+        "key": "n",
+        "type": "command",
+        "command": "go-to-next-error.next.warning"
+      },
+      {
+        "key": "N",
+        "type": "command",
+        "command": "go-to-next-error.prev.warning"
+      },
+      {
+        "key": "p",
+        "type": "command",
+        "command": "go-to-next-error.prev.warning"
+      }
+    ]
+  }
+]

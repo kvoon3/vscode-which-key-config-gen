@@ -1,0 +1,34 @@
+{
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "leader",
+        "c",
+        "p"
+      ],
+      "commands": [
+        "workbench.action.editor.previousChange"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "c",
+        "N"
+      ],
+      "commands": [
+        "workbench.action.editor.previousChange"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "c",
+        "n"
+      ],
+      "commands": [
+        "workbench.action.editor.nextChange"
+      ]
+    }
+  ]
+}

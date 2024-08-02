@@ -1,0 +1,173 @@
+{
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "leader",
+        "leader"
+      ],
+      "commands": [
+        "whichkeyConfigGen.show"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "c",
+        "p"
+      ],
+      "commands": [
+        "workbench.action.editor.previousChange"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "c",
+        "N"
+      ],
+      "commands": [
+        "workbench.action.editor.previousChange"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "c",
+        "n"
+      ],
+      "commands": [
+        "workbench.action.editor.nextChange"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "e",
+        "n"
+      ],
+      "commands": [
+        "go-to-next-error.next.error"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "e",
+        "N"
+      ],
+      "commands": [
+        "go-to-next-error.prev.error"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "e",
+        "p"
+      ],
+      "commands": [
+        "go-to-next-error.prev.error"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "w",
+        "n"
+      ],
+      "commands": [
+        "go-to-next-error.next.warning"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "w",
+        "N"
+      ],
+      "commands": [
+        "go-to-next-error.prev.warning"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "w",
+        "p"
+      ],
+      "commands": [
+        "go-to-next-error.prev.warning"
+      ]
+    },
+    {
+      "after": [
+        "i"
+      ],
+      "before": [
+        "i"
+      ],
+      "commands": [
+        "autoHide.runHide"
+      ],
+      "silent": true
+    },
+    {
+      "before": [
+        "g",
+        "p",
+        "d"
+      ],
+      "commands": [
+        "editor.action.peekDefinition"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "i"
+      ],
+      "commands": [
+        "editor.action.goToImplementation"
+      ],
+      "keys": "gi"
+    },
+    {
+      "before": [
+        "g",
+        "p",
+        "i"
+      ],
+      "commands": [
+        "editor.action.peekImplementation"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "r"
+      ],
+      "commands": [
+        "editor.action.referenceSearch.trigger"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "t"
+      ],
+      "commands": [
+        "editor.action.goToTypeDefinition"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "p",
+        "t"
+      ],
+      "commands": [
+        "editor.action.peekTypeDefinition"
+      ]
+    }
+  ]
+}
