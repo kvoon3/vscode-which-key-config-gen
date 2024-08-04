@@ -5,17 +5,17 @@
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@9.3.0",
-  "description": "Generate vscode whichkey config according to your Vim keymap",
+  "description": "Generate vscode which-key config according to your Vim keymap",
   "author": "Kevin Kwong <kvoon@duck.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/kvoon3",
-  "homepage": "https://github.com/kvoon3/vscode-whichkey-config-gen#readme",
+  "homepage": "https://github.com/kvoon3/vscode-which-key-config-gen#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kvoon3/vscode-whichkey-config-gen"
+    "url": "https://github.com/kvoon3/vscode-which-key-config-gen"
   },
   "bugs": {
-    "url": "https://github.com/kvoon3/vscode-whichkey-config-gen/issues"
+    "url": "https://github.com/kvoon3/vscode-which-key-config-gen/issues"
   },
   "categories": [
     "Keymaps",
@@ -36,19 +36,23 @@
     "commands": [
       {
         "title": "Show Generated Which Key",
-        "command": "whichkeyConfigGen.show"
+        "command": "whichKeyConfigGen.show"
+      },
+      {
+        "title": "Show Generated Which Key",
+        "command": "whichKeyConfigGen.gen"
       }
     ],
     "configuration": {
       "type": "object",
       "title": "Which key Config Generator",
       "properties": {
-        "whichkeyConfigGen.bindingOverrides": {
+        "whichKeyConfigGen.bindingOverrides": {
           "type": "array",
           "items": "object",
           "default": []
         },
-        "whichkeyConfigGen.bindings": {
+        "whichKeyConfigGen.bindings": {
           "type": "array",
           "items": "object",
           "default": []
@@ -69,11 +73,12 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "release": "bumpp && nr publish",
-    "update": "nlx vscode-ext-gen --output ./src/generated/meta.ts --scope whichkeyConfigGen"
+    "update": "nlx vscode-ext-gen --output ./src/generated/meta.ts --scope whichKeyConfigGen"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.1",
     "@antfu/ni": "^0.21.12",
+    "@antfu/utils": "^0.7.10",
     "@types/node": "^20.14.2",
     "@types/vscode": "^1.90.0",
     "@vscode/vsce": "^2.27.0",
