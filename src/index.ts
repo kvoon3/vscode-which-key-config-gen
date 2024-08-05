@@ -1,4 +1,4 @@
-import { defineExtension, useCommand, watch } from 'reactive-vscode'
+import { defineExtension, useCommand } from 'reactive-vscode'
 import { ConfigurationTarget, commands, workspace } from 'vscode'
 import { logger } from './logger'
 import type { VimKeybinding } from './types'
