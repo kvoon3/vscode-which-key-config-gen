@@ -13,12 +13,16 @@ Generate vscode which-key config automatically according to your Vim keymap (you
 
 1. Enable `vscode-whichkey-config=gen`
 2. add a `names` field into your `vim.normalModeKeyBindingsNonRecursive` (generate which-key hint title)
-
-For example:
+3. add keymap `whichKeyConfigGen.show` for show which-key
 
 ```json
 {
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      // I prefer use leader twice to avoid overlap with Vim keymap, and you can still use one leader
+      "before": ["leader", "leader"],
+      "commands": ["whichKeyConfigGen.show"]
+    },
     {
       "before": ["leader", "c", "n"],
       "names": ["Changes...", "Next Changes..."],
