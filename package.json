@@ -2,7 +2,7 @@
   "publisher": "kvoon",
   "name": "which-key-config-gen",
   "displayName": "Which key Config Generator",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@9.6.0",
   "description": "Generate vscode which-key config automatically",
