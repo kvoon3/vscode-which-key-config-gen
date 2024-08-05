@@ -5,37 +5,45 @@ import type { VimKeybinding } from './types'
 import { trans } from './utils'
 import { scopedConfigs } from './generated/meta'
 import * as Meta from './generated/meta'
+import { configs } from './configs'
 
-function updateConfig() {
+async function updateConfig() {
   const vimConfigs = workspace.getConfiguration('vim')
   const nnoremaps = vimConfigs.inspect<VimKeybinding[]>('normalModeKeyBindingsNonRecursive')?.globalValue
 
   if (nnoremaps) {
     const bindings = trans(nnoremaps)
-    return workspace
+
+    await workspace
       .getConfiguration(scopedConfigs.scope)
       .update('bindings', bindings, ConfigurationTarget.Global)
-      .then(() => {
-        return bindings
-      })
+
+    await commands.executeCommand('whichkey.register', {
+      bindings: [Meta.scopedConfigs.scope, 'bindings'],
+      overrides: [Meta.scopedConfigs.scope, 'bindingOverrides'],
+      title: 'Genrated whichkey config',
+    })
+
+    logger.info('whichkey registered:', JSON.stringify(bindings, null, 2))
+
+    return bindings
   }
   else {
-    return Promise.reject(new Error('no nnoremaps'))
+    return Promise.reject(new Error('not find vim.normalModeKeyBindingsNonRecursive config'))
   }
 }
 
 export const { activate, deactivate } = defineExtension(async () => {
-  const bindings = await updateConfig()
-  logger.info(JSON.stringify(bindings, null, 2))
-  commands.executeCommand('whichkey.register', {
-    bindings: [Meta.scopedConfigs.scope, 'bindings'],
-    overrides: [Meta.scopedConfigs.scope, 'bindingOverrides'],
-    title: 'Genrated whichkey config',
-  })
+  await updateConfig()
 
-  useCommand(Meta.commands.show, () => commands.executeCommand('whichkey.show', Meta.configs.bindings.key))
-  useCommand(Meta.commands.updateConfig, async () => {
-    const bindings = await updateConfig()
-    logger.info(JSON.stringify(bindings, null, 2))
+  useCommand(Meta.commands.show, () => {
+    if (configs.enable.value)
+      commands.executeCommand('whichkey.show', Meta.configs.bindings.key)
+    else
+      commands.executeCommand('whichkey.show')
+  })
+  useCommand(Meta.commands.updateConfig, async () => await updateConfig())
+  useCommand(Meta.commands.toggleEnable, async () => {
+    configs.enable.value = !configs.enable.value
   })
 })

@@ -32,22 +32,26 @@
   "contributes": {
     "commands": [
       {
-        "title": "Show Generated Which Key",
+        "title": "Which Key Config Generator: Show Menu",
         "command": "whichKeyConfigGen.show"
       },
       {
-        "title": "Show Generated Which Key",
-        "command": "whichKeyConfigGen.gen"
+        "title": "Which Key Config Generator: Update Config",
+        "command": "whichKeyConfigGen.updateConfig"
       },
       {
-        "title": "Update Which Key Config",
-        "command": "whichKeyConfigGen.updateConfig"
+        "title": "Which Key Config Generator: Toggle Enable",
+        "command": "whichKeyConfigGen.toggleEnable"
       }
     ],
     "configuration": {
       "type": "object",
       "title": "Which key Config Generator",
       "properties": {
+        "whichKeyConfigGen.enable": {
+          "type": "boolean",
+          "default": true
+        },
         "whichKeyConfigGen.bindingOverrides": {
           "type": "array",
           "items": "object",
