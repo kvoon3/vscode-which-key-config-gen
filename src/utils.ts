@@ -7,47 +7,50 @@ export function findParent(
   nodes: WhichKeyItem[],
   keys: string[],
   maybeParent: WhichKeyBinding | 'root' = 'root',
-): { parent: WhichKeyBinding | 'root', restKeys: string[] } {
+  names: string[] = [],
+): { parent: WhichKeyBinding | 'root', restKeys: string[], restNames: string[] } {
   const [key, ...restKeys] = keys
+  const [_, ...restNames] = names
   const target = nodes.find(i => i.key === key)
 
   if (!target)
-    return { parent: maybeParent, restKeys: keys }
+    return { parent: maybeParent, restKeys: keys, restNames: names }
 
   // target: sibling
   if (isCommand(target))
-    return { parent: maybeParent, restKeys: keys }
+    return { parent: maybeParent, restKeys: keys, restNames: names }
 
   if (isBinding(target)) {
     if (restKeys.length === 0)
-      return { parent: maybeParent, restKeys: [] }
+      return { parent: maybeParent, restKeys: [], restNames: [] }
 
     // target: parent
     if (restKeys.length === 1)
-      return { parent: target, restKeys }
+      return { parent: target, restKeys, restNames }
     // target: ancestor
     else
-      return findParent(target.bindings, restKeys, target)
+      return findParent(target.bindings, restKeys, target, restNames)
   }
 
-  return { parent: 'root', restKeys: keys }
+  return { parent: 'root', restKeys: keys, restNames: names }
 }
-export function genWhichKeyTree(keys: string[], command: string): WhichKeyItem {
-  if (keys.length === 1) {
-    return {
-      key: keys[0],
-      type: 'command',
-      command,
-    } as WhichKeyCommand
-  }
-
+export function genWhichKeyTree(keys: string[], command: string, names: string[] = []): WhichKeyItem {
   const [key, ...restKey] = keys
+  const [name, ...restName] = names
 
-  return {
-    key,
-    type: 'bindings',
-    bindings: [genWhichKeyTree(restKey, command)],
-  } as WhichKeyBinding
+  return restKey.length === 0
+    ? {
+        key,
+        type: 'command',
+        name,
+        command,
+      }
+    : {
+        key,
+        type: 'bindings',
+        name,
+        bindings: [genWhichKeyTree(restKey, command, restName)],
+      }
 }
 
 export function trans(vimKeybindings: VimKeybinding[]): WhichKeyItem[] {
@@ -58,16 +61,17 @@ export function trans(vimKeybindings: VimKeybinding[]): WhichKeyItem[] {
       && keybinding.before[0] === 'leader',
     )
     .reduce((whichKeyBindings, vimKeybinding) => {
-      const [_, ...keys2bind] = vimKeybinding.before
-      const [command] = vimKeybinding.commands
+      const { before: keys, commands, names } = vimKeybinding
+      const [_, ...keys4bind] = keys
+      const [command] = commands
 
-      const { parent, restKeys } = findParent(whichKeyBindings, keys2bind)
+      const { parent, restKeys, restNames } = findParent(whichKeyBindings, keys4bind, 'root', names)
 
       if (parent === 'root') {
-        return [...whichKeyBindings, genWhichKeyTree(restKeys, command)]
+        return [...whichKeyBindings, genWhichKeyTree(restKeys, command, restNames)]
       }
       else {
-        parent.bindings.push(genWhichKeyTree(restKeys, command))
+        parent.bindings.push(genWhichKeyTree(restKeys, command, restNames))
         return whichKeyBindings
       }
     }, [] as WhichKeyItem[])

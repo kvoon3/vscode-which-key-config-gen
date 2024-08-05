@@ -41,6 +41,10 @@
       {
         "title": "Show Generated Which Key",
         "command": "whichKeyConfigGen.gen"
+      },
+      {
+        "title": "Update Which Key Config",
+        "command": "whichKeyConfigGen.updateConfig"
       }
     ],
     "configuration": {

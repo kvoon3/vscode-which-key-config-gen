@@ -2,20 +2,24 @@
   {
     "key": "c",
     "type": "bindings",
+    "name": "Changes...",
     "bindings": [
       {
         "key": "p",
         "type": "command",
+        "name": "Previous Changes...",
         "command": "workbench.action.editor.previousChange"
       },
       {
         "key": "N",
         "type": "command",
+        "name": "Previous Changes...",
         "command": "workbench.action.editor.previousChange"
       },
       {
         "key": "n",
         "type": "command",
+        "name": "Next Changes...",
         "command": "workbench.action.editor.nextChange"
       }
     ]
@@ -23,20 +27,24 @@
   {
     "key": "e",
     "type": "bindings",
+    "name": "Errors...",
     "bindings": [
       {
         "key": "n",
         "type": "command",
+        "name": "Next Errors...",
         "command": "go-to-next-error.next.error"
       },
       {
         "key": "N",
         "type": "command",
+        "name": "Previous Errors...",
         "command": "go-to-next-error.prev.error"
       },
       {
         "key": "p",
         "type": "command",
+        "name": "Previous Errors...",
         "command": "go-to-next-error.prev.error"
       }
     ]
@@ -44,20 +52,24 @@
   {
     "key": "w",
     "type": "bindings",
+    "name": "Warnings...",
     "bindings": [
       {
         "key": "n",
         "type": "command",
+        "name": "Next Warnings...",
         "command": "go-to-next-error.next.warning"
       },
       {
         "key": "N",
         "type": "command",
+        "name": "Previous Warnings...",
         "command": "go-to-next-error.prev.warning"
       },
       {
         "key": "p",
         "type": "command",
+        "name": "Previous Warnings...",
         "command": "go-to-next-error.prev.warning"
       }
     ]

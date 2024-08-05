@@ -17,4 +17,6 @@ export type WhichKeyItem = WhichKeyBinding | WhichKeyCommand
 export interface VimKeybinding {
   before: string[]
   commands: [string]
+  // custom attr
+  names?: string[]
 }

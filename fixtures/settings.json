@@ -6,7 +6,7 @@
         "leader"
       ],
       "commands": [
-        "whichkeyConfigGen.show"
+        "whichKeyConfigGen.show"
       ]
     },
     {
@@ -15,6 +15,7 @@
         "c",
         "p"
       ],
+      "names": ["Changes...", "Previous Changes..."],
       "commands": [
         "workbench.action.editor.previousChange"
       ]
@@ -25,6 +26,7 @@
         "c",
         "N"
       ],
+      "names": ["Changes...", "Previous Changes..."],
       "commands": [
         "workbench.action.editor.previousChange"
       ]
@@ -35,6 +37,7 @@
         "c",
         "n"
       ],
+      "names": ["Changes...", "Next Changes..."],
       "commands": [
         "workbench.action.editor.nextChange"
       ]
@@ -45,6 +48,7 @@
         "e",
         "n"
       ],
+      "names": ["Errors...", "Next Errors..."],
       "commands": [
         "go-to-next-error.next.error"
       ]
@@ -55,6 +59,7 @@
         "e",
         "N"
       ],
+      "names": ["Errors...", "Previous Errors..."],
       "commands": [
         "go-to-next-error.prev.error"
       ]
@@ -65,6 +70,7 @@
         "e",
         "p"
       ],
+      "names": ["Errors...", "Previous Errors..."],
       "commands": [
         "go-to-next-error.prev.error"
       ]
@@ -75,6 +81,7 @@
         "w",
         "n"
       ],
+      "names": ["Warnings...", "Next Warnings..."],
       "commands": [
         "go-to-next-error.next.warning"
       ]
@@ -85,6 +92,7 @@
         "w",
         "N"
       ],
+      "names": ["Warnings...", "Previous Warnings..."],
       "commands": [
         "go-to-next-error.prev.warning"
       ]
@@ -95,6 +103,7 @@
         "w",
         "p"
       ],
+      "names": ["Warnings...", "Previous Warnings..."],
       "commands": [
         "go-to-next-error.prev.warning"
       ]
