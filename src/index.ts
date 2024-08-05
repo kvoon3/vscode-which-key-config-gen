@@ -2,7 +2,7 @@ import { defineExtension, useCommand } from 'reactive-vscode'
 import { ConfigurationTarget, commands, workspace } from 'vscode'
 import { logger } from './logger'
 import type { VimKeybinding } from './types'
-import { trans } from './utils'
+import { vim2whichkey } from './utils'
 import { scopedConfigs } from './generated/meta'
 import * as Meta from './generated/meta'
 import { configs } from './configs'
@@ -12,7 +12,7 @@ async function updateConfig() {
   const nnoremaps = vimConfigs.inspect<VimKeybinding[]>('normalModeKeyBindingsNonRecursive')?.globalValue
 
   if (nnoremaps) {
-    const bindings = trans(nnoremaps)
+    const bindings = vim2whichkey(nnoremaps)
 
     await workspace
       .getConfiguration(scopedConfigs.scope)
