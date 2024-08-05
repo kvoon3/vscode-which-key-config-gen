@@ -25,8 +25,6 @@ function updateConfig() {
 }
 
 export const { activate, deactivate } = defineExtension(async () => {
-  logger.show()
-
   const bindings = await updateConfig()
   logger.info(JSON.stringify(bindings, null, 2))
   commands.executeCommand('whichkey.register', {
