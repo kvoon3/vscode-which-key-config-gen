@@ -6,14 +6,14 @@ Generate vscode which-key config automatically according to your Vim keymap (you
 
 ## Why
 
-1. I'm lazy to migration my vim-style keybinding to which-key-style bindings
-2. which-key menu always popup when i typed my `leader` key,that was quite annoying. Specifically I still want to use `leader` like I was using Vim, I hope which-key shows up when i just forget some keybinding.
+1. I'm too lazy to migration my vim-style keybinding to which-key-style bindings
+2. I still want to use `leader` key in VSCodeVim, and the which-key menu always popup when i type `leader` key, which is quite annoying. I hope which-key only shows up when i just forget some keybinding.
 
 ## Usage
 
-1. Enable `vscode-whichkey-config=gen`
-2. add a `names` field into your `vim.normalModeKeyBindingsNonRecursive` (generate which-key hint title)
-3. add keymap `whichKeyConfigGen.show` for show which-key
+1. enable `vscode-whichkey-config-gen`
+2. add a `names` field to your `vim.normalModeKeyBindingsNonRecursive` (generate which-key hint title)
+3. replace the keymap `whichkey.show` with `whichKeyConfigGen.show`
 
 ```json
 {
