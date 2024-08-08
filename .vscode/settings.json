@@ -47,7 +47,9 @@
     ]
   },
   "cSpell.words": [
+    "nnoremap",
     "nnoremaps",
+    "vnoremap",
     "vnoremaps"
   ]
 }

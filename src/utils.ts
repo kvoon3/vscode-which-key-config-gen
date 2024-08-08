@@ -1,7 +1,7 @@
 import type { VimKeybinding, WhichKeyBinding, WhichKeyCommand, WhichKeyItem } from './types'
 
 const isBinding = (item: WhichKeyItem): item is WhichKeyBinding => item.type === 'bindings'
-const isCommand = (item: WhichKeyItem): item is WhichKeyCommand => item.type === 'command'
+const isCommand = (item: WhichKeyItem): item is WhichKeyCommand => item.type === 'command' || item.type === 'commands'
 
 export function findParent(
   nodes: WhichKeyItem[],
@@ -34,22 +34,29 @@ export function findParent(
 
   return { parent: 'root', restKeys: keys, restNames: names }
 }
-export function genWhichKeyTree(keys: string[], command: string, names: string[] = []): WhichKeyItem {
+export function genWhichKeyTree(keys: string[], commands: string[], names: string[] = []): WhichKeyItem {
   const [key, ...restKey] = keys
   const [name, ...restName] = names
 
   return restKey.length === 0
-    ? {
-        key,
-        type: 'command',
-        name,
-        command,
-      }
+    ? commands.length > 1
+      ? {
+          key,
+          type: 'commands',
+          name,
+          commands,
+        }
+      : {
+          key,
+          type: 'command',
+          name,
+          command: commands[0],
+        }
     : {
         key,
         type: 'bindings',
         name,
-        bindings: [genWhichKeyTree(restKey, command, restName)],
+        bindings: [genWhichKeyTree(restKey, commands, restName)],
       }
 }
 
@@ -63,15 +70,14 @@ export function vim2whichkey(vimKeybindings: VimKeybinding[]): WhichKeyItem[] {
     .reduce((whichKeyBindings, vimKeybinding) => {
       const { before: keys, commands, names } = vimKeybinding
       const [_, ...keys4bind] = keys
-      const [command] = commands
 
       const { parent, restKeys, restNames } = findParent(whichKeyBindings, keys4bind, 'root', names)
 
       if (parent === 'root') {
-        return [...whichKeyBindings, genWhichKeyTree(restKeys, command, restNames)]
+        return [...whichKeyBindings, genWhichKeyTree(restKeys, commands, restNames)]
       }
       else {
-        parent.bindings.push(genWhichKeyTree(restKeys, command, restNames))
+        parent.bindings.push(genWhichKeyTree(restKeys, commands, restNames))
         return whichKeyBindings
       }
     }, [] as WhichKeyItem[])

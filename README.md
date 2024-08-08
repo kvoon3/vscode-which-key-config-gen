@@ -7,7 +7,7 @@ Generate vscode which-key config automatically according to your Vim keymap (you
 ## Why
 
 1. I'm too lazy to migration my vim-style keybinding to which-key-style bindings
-2. I still want to use `leader` key in VSCodeVim, and the which-key menu always popup when i type `leader` key, which is quite annoying. I hope which-key only shows up when i just forget some keybinding.
+2. I still want to use `leader` key in VSCodeVim as usual, but which-key also need work with `leader`, So I have to write both configuration of them and binding them, which is quite annoying.
 
 ## Usage
 
@@ -15,8 +15,31 @@ Generate vscode which-key config automatically according to your Vim keymap (you
 2. add a `names` field to your `vim.normalModeKeyBindingsNonRecursive` (generate which-key hint title)
 3. replace the keymap `whichkey.show` with `whichKeyConfigGen.show`
 
-```json
+And then you never need your old which-key config
+
+```diff
 {
+- "whichkey.bindings": [
+-   {
+-     "key": "c",
+-     "type": "bindings",
+-     "name": "Go to Change...",
+-     "bindings": [
+-       {
+-         "key": "n",
+-         "name": "Next Changes",
+-         "type": "command",
+-         "command": "workbench.action.editor.nextChange"
+-       },
+-       {
+-         "key": "p",
+-         "name": "Previous Changes",
+-         "type": "command",
+-         "command": "workbench.action.editor.previousChange"
+-       }
+-     ]
+-   }
+- ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       // I prefer use leader twice to avoid overlap with Vim keymap, and you can still use one leader
@@ -25,12 +48,12 @@ Generate vscode which-key config automatically according to your Vim keymap (you
     },
     {
       "before": ["leader", "c", "n"],
-      "names": ["Changes...", "Next Changes..."],
++     "names": ["Go to Change...", "Next Change"],
       "commands": ["workbench.action.editor.nextChange"]
     },
     {
       "before": ["leader", "c", "p"],
-      "names": ["Changes...", "Previous Changes..."],
++     "names": ["Go to Change...", "Previous Change"],
       "commands": ["workbench.action.editor.previousChange"]
     }
   ]

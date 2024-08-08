@@ -1,0 +1,22 @@
+{
+  "whichKeyConfigGen.NormalModeNonRecursiveKeybindings": [
+    {
+      "key": "a",
+      "type": "commands",
+      "commands": [
+        "command 1",
+        "command 2"
+      ]
+    }
+  ],
+  "whichKeyConfigGen.VisualModeNonRecursiveKeybindings": [
+    {
+      "key": "i",
+      "type": "commands",
+      "commands": [
+        "command 3",
+        "command 4"
+      ]
+    }
+  ]
+}

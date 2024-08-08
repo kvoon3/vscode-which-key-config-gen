@@ -1,0 +1,26 @@
+{
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "leader",
+        "a"
+      ],
+      "commands": [
+        "command 1",
+        "command 2"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "leader",
+        "i"
+      ],
+      "commands": [
+        "command 3",
+        "command 4"
+      ]
+    }
+  ]
+}

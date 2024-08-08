@@ -1,4 +1,4 @@
-import { computed, defineExtension, ref, useActiveTextEditor, useCommand, useTextEditorSelection, useVisibleTextEditors, watch } from 'reactive-vscode'
+import { computed, defineExtension, ref, useActiveTextEditor, useCommand, useTextEditorSelection, watch } from 'reactive-vscode'
 import { ConfigurationTarget, commands, workspace } from 'vscode'
 import { logger } from './logger'
 import type { VimKeybinding } from './types'
