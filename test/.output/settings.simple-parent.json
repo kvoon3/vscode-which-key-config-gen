@@ -1,5 +1,5 @@
 {
-  "whichKeyConfigGen.NormalModeNonRecursiveKeybindings": [
+  "whichKeyConfigGen.normalModeNonRecursiveKeybindings": [
     {
       "key": "c",
       "type": "bindings",
@@ -22,5 +22,5 @@
       ]
     }
   ],
-  "whichKeyConfigGen.VisualModeNonRecursiveKeybindings": []
+  "whichKeyConfigGen.visualModeNonRecursiveKeybindings": []
 }

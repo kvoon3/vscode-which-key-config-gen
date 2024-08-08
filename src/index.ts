@@ -30,8 +30,8 @@ async function updateConfig() {
   }
 
   return Promise.all([
-    genBindings('NormalModeNonRecursiveKeybindings', nnoremaps),
-    genBindings('VisualModeNonRecursiveKeybindings', vnoremaps),
+    genBindings('normalModeNonRecursiveKeybindings', nnoremaps),
+    genBindings('visualModeNonRecursiveKeybindings', vnoremaps),
   ])
 }
 
@@ -48,10 +48,10 @@ export const { activate, deactivate } = defineExtension(async () => {
       return undefined
 
     if (VimMode.value === 'normal')
-      return Meta.configs.NormalModeNonRecursiveKeybindings.key
+      return Meta.configs.normalModeNonRecursiveKeybindings.key
 
     if (VimMode.value === 'visual')
-      return Meta.configs.VisualModeNonRecursiveKeybindings.key
+      return Meta.configs.visualModeNonRecursiveKeybindings.key
 
     return undefined
   })

@@ -12,8 +12,8 @@ describe('which key', async () => {
       const nnoremap = settingsJson['vim.normalModeKeyBindingsNonRecursive'] || []
       const vnoremap = settingsJson['vim.visualModeKeyBindingsNonRecursive'] || []
       const output = {
-        [configs.NormalModeNonRecursiveKeybindings.key]: vim2whichkey(nnoremap),
-        [configs.VisualModeNonRecursiveKeybindings.key]: vim2whichkey(vnoremap),
+        [configs.normalModeNonRecursiveKeybindings.key]: vim2whichkey(nnoremap),
+        [configs.visualModeNonRecursiveKeybindings.key]: vim2whichkey(vnoremap),
       }
       expect(JSON.stringify(output, null, 2)).toMatchFileSnapshot(`./.output/${basename(filePath)}`)
     })

@@ -1,5 +1,5 @@
 {
-  "whichKeyConfigGen.NormalModeNonRecursiveKeybindings": [
+  "whichKeyConfigGen.normalModeNonRecursiveKeybindings": [
     {
       "key": "a",
       "type": "commands",
@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "whichKeyConfigGen.VisualModeNonRecursiveKeybindings": [
+  "whichKeyConfigGen.visualModeNonRecursiveKeybindings": [
     {
       "key": "i",
       "type": "commands",
