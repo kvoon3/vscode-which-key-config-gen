@@ -22,7 +22,7 @@ export type WhichKeyItem = WhichKeyBinding | WhichKeyCommand | WhichKeyCommands
 
 export interface VimKeybinding {
   before: string[]
-  commands: [string]
+  commands: string[]
   // custom attr
   names?: string[]
 }
