@@ -1,13 +1,13 @@
-# vscode-which-key-config-gen
+<h1 align="center">Which Key Config Gen<sup>VS Code</sup></h1>
 
-<a href="https://marketplace.visualstudio.com/items?itemName=kvoon.which-key-config-gen" target="__blank"><img src="https://img.shields.io/visual-studio-marketplace/v/antfu.ext-name.svg?color=eee&amp;label=VS%20Code%20Marketplace&logo=visual-studio-code" alt="Visual Studio Marketplace Version" /></a>
+<p align="center">
+<a href="https://marketplace.visualstudio.com/items?itemName=kvoon.which-key-config-gen" target="__blank"><img alt="Visual Studio Marketplace Version" src="https://img.shields.io/visual-studio-marketplace/v/kvoon.which-key-config-gen?label=VS%20Code%20Marketplace&color=eee"></a>
+<a href="https://kermanx.github.io/reactive-vscode/" target="__blank"><img src="https://img.shields.io/badge/made_with-reactive--vscode-%23eee?style=flat"  alt="Made with reactive-vscode" /></a>
+</p>
 
-Generate vscode which-key config automatically according to your Vim keymap (your `leader` key)
-
-## Why
-
-1. I'm too lazy to migration my vim-style keybinding to which-key-style bindings
-2. I still want to use `leader` key in VSCodeVim as usual, but which-key also need work with `leader`, So I have to write both configuration of them and binding them, which is quite annoying.
+<p align="center">
+Generate vscode which-key config automatically
+</p>
 
 ## Usage
 
@@ -15,7 +15,7 @@ Generate vscode which-key config automatically according to your Vim keymap (you
 2. add a `names` field to your `vim.normalModeKeyBindingsNonRecursive` (generate which-key hint title)
 3. replace the keymap `whichkey.show` with `whichKeyConfigGen.show`
 
-And then you never need your old which-key config
+And then simply remove your old which-key configs
 
 ```diff
 {
@@ -62,18 +62,27 @@ And then you never need your old which-key config
 
 ## Commands
 
-| ID                               | Description             |
-| -------------------------------- | ----------------------- |
-| `whichKeyConfigGen.toggleEnable` | Toggle Enable Extension |
-| `whichKeyConfigGen.show`         | Show menu               |
-| `whichKeyConfigGen.updateConfig` | Update Generated Config |
+<!-- commands -->
 
-## Configuration
+| Command                          | Title                                     |
+| -------------------------------- | ----------------------------------------- |
+| `whichKeyConfigGen.show`         | Which Key Config Generator: Show Menu     |
+| `whichKeyConfigGen.updateConfig` | Which Key Config Generator: Update Config |
+| `whichKeyConfigGen.toggleEnable` | Which Key Config Generator: Toggle Enable |
 
-| Key                          | Description                                      |
-| ---------------------------- | ------------------------------------------------ |
-| `whichKeyConfigGen.enable`   | Enable Extension                                 |
-| `whichKeyConfigGen.bindings` | Generated keybindings (Don't modify it manually) |
+<!-- commands -->
+
+## Configurations
+
+<!-- configs -->
+
+| Key                                                   | Description                       | Type      | Default |
+| ----------------------------------------------------- | --------------------------------- | --------- | ------- |
+| `whichKeyConfigGen.enable`                            | Enable which-key config generator | `boolean` | `true`  |
+| `whichKeyConfigGen.normalModeNonRecursiveKeybindings` | Generated code, do not modify     | `array`   | `[]`    |
+| `whichKeyConfigGen.visualModeNonRecursiveKeybindings` | Generated code, do not modify     | `array`   | `[]`    |
+
+<!-- configs -->
 
 ## License
 
