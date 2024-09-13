@@ -63,8 +63,8 @@ export function genWhichKeyTree(keys: string[], commands: string[], names: strin
 export function vim2whichkey(vimKeybindings: VimKeybinding[]): WhichKeyItem[] {
   return vimKeybindings
     .filter(keybinding =>
-      !keybinding?.commands.includes('whichkey.show')
-      && !keybinding?.commands.includes('whichKeyConfigGen.show')
+      !keybinding?.commands?.includes('whichkey.show')
+      && !keybinding?.commands?.includes('whichKeyConfigGen.show')
       && keybinding.before[0] === 'leader',
     )
     .reduce((whichKeyBindings, vimKeybinding) => {

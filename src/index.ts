@@ -56,13 +56,19 @@ export const { activate, deactivate } = defineExtension(async () => {
     return undefined
   })
 
-  await updateConfig()
-
-  useCommand(Meta.commands.show, () => {
-    logger.info('VimMode', VimMode.value)
-    logger.info(`show ${whichKeyBindings.value}`)
-    commands.executeCommand('whichkey.show', whichKeyBindings.value)
-  })
-  useCommand(Meta.commands.updateConfig, async () => await updateConfig())
-  useCommand(Meta.commands.toggleEnable, async () => configs.enable.value = !configs.enable.value)
+  try {
+    await updateConfig()
+  }
+  catch (error) {
+    logger.error(error)
+  }
+  finally {
+    useCommand(Meta.commands.show, () => {
+      logger.info('VimMode', VimMode.value)
+      logger.info(`show ${whichKeyBindings.value}`)
+      commands.executeCommand('whichkey.show', whichKeyBindings.value)
+    })
+    useCommand(Meta.commands.updateConfig, async () => await updateConfig())
+    useCommand(Meta.commands.toggleEnable, async () => configs.enable.value = !configs.enable.value)
+  }
 })
