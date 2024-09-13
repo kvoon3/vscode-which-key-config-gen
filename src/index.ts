@@ -1,4 +1,4 @@
-import { computed, defineExtension, ref, useActiveTextEditor, useCommand, useTextEditorSelection, watch } from 'reactive-vscode'
+import { computed, defineExtension, useActiveTextEditor, useCommand, useTextEditorSelection, watchEffect } from 'reactive-vscode'
 import { ConfigurationTarget, commands, workspace } from 'vscode'
 import { logger } from './logger'
 import type { VimKeybinding } from './types'
@@ -24,7 +24,7 @@ async function updateConfig() {
       title: 'Genrated whichkey config',
     })
 
-    logger.info('whichkey registered:', JSON.stringify(whichkeybindings, null, 2))
+    // logger.info('whichkey registered:', JSON.stringify(whichkeybindings, null, 2))
 
     return whichkeybindings
   }
@@ -36,21 +36,21 @@ async function updateConfig() {
 }
 
 export const { activate, deactivate } = defineExtension(async () => {
-  const VimMode = ref< 'normal' | 'visual' | 'insert' | 'command' >('normal')
-
   const activeTextEditor = useActiveTextEditor()
-  const selection = computed(() => useTextEditorSelection(activeTextEditor).value)
+  const selection = useTextEditorSelection(activeTextEditor)
 
-  watch(selection, s => VimMode.value = s.isEmpty ? 'normal' : 'visual')
+  const vimMode = computed(() => selection.value.isEmpty ? 'normal' : 'visual')
+
+  watchEffect(() => logger.info('vimMode', vimMode.value))
 
   const whichKeyBindings = computed<Meta.ConfigKey | undefined>(() => {
     if (!configs.enable.value)
       return undefined
 
-    if (VimMode.value === 'normal')
+    if (vimMode.value === 'normal')
       return Meta.configs.normalModeNonRecursiveKeybindings.key
 
-    if (VimMode.value === 'visual')
+    if (vimMode.value === 'visual')
       return Meta.configs.visualModeNonRecursiveKeybindings.key
 
     return undefined
@@ -64,7 +64,7 @@ export const { activate, deactivate } = defineExtension(async () => {
   }
   finally {
     useCommand(Meta.commands.show, () => {
-      logger.info('VimMode', VimMode.value)
+      logger.info('vimMode', vimMode.value)
       logger.info(`show ${whichKeyBindings.value}`)
       commands.executeCommand('whichkey.show', whichKeyBindings.value)
     })
