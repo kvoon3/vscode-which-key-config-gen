@@ -1,4 +1,4 @@
 {
-  "whichKeyConfigGen.normalModeNonRecursiveKeybindings": [],
-  "whichKeyConfigGen.visualModeNonRecursiveKeybindings": []
+  "normal": [],
+  "visual": []
 }

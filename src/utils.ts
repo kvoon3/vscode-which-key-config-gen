@@ -1,5 +1,3 @@
-import { computed, useActiveTextEditor, useTextEditorSelection } from 'reactive-vscode'
-import { workspace } from 'vscode'
 import type { VimKeybinding, WhichKeyBinding, WhichKeyCommand, WhichKeyItem } from './types'
 
 const isBinding = (item: WhichKeyItem): item is WhichKeyBinding => item.type === 'bindings'
@@ -61,32 +59,6 @@ export function genWhichKeyTree(keys: string[], commands: string[], names: strin
         name,
         bindings: [genWhichKeyTree(restKey, commands, restName)],
       }
-}
-
-export function getWhichkeyConfig() {
-  const activeTextEditor = useActiveTextEditor()
-  const selection = useTextEditorSelection(activeTextEditor)
-
-  const vimMode = computed(() => selection.value.isEmpty ? 'normal' : 'visual')
-
-  const modeNameMap = {
-    normal: [
-      'normalModeKeyBindings',
-      'normalModeKeyBindingsNonRecursive',
-    ],
-    visual: [
-      'visualModeKeyBindings',
-      'visualModeKeyBindingsNonRecursive',
-    ],
-    insert: [
-      'insertModeKeyBindings',
-      'insertModeKeyBindingsNonRecursive',
-    ],
-  }
-
-  return vim2whichkey(modeNameMap[vimMode.value]
-    .flatMap(i => workspace.getConfiguration('vim').inspect<VimKeybinding[]>(i)?.globalValue || [])
-    .filter(i => i.names?.length))
 }
 
 export function vim2whichkey(vimKeybindings: VimKeybinding[]): WhichKeyItem[] {

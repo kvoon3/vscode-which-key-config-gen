@@ -4,7 +4,7 @@
   "displayName": "Which Key Config Generator",
   "version": "0.1.6",
   "private": true,
-  "packageManager": "pnpm@9.7.1",
+  "packageManager": "pnpm@10.13.1",
   "description": "Generate vscode which-key config automatically",
   "author": "Kevin Kwong <kvoon@duck.com>",
   "license": "MIT",
@@ -32,7 +32,7 @@
   "main": "./dist/index.js",
   "icon": "res/icon.png",
   "engines": {
-    "vscode": "^1.90.0"
+    "vscode": "^1.102.0"
   },
   "activationEvents": [
     "onStartupFinished"
@@ -80,26 +80,26 @@
     "postinstall": "npx simple-git-hooks"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.26.1",
-    "@antfu/ni": "^0.22.4",
-    "@antfu/utils": "^0.7.10",
-    "@types/node": "^22.4.2",
-    "@types/vscode": "^1.90.0",
-    "@vscode/vsce": "^3.0.0",
-    "bumpp": "^9.5.1",
-    "eslint": "^9.9.0",
-    "esno": "^4.7.0",
-    "fast-glob": "^3.3.2",
-    "lint-staged": "^15.2.9",
-    "pnpm": "^9.7.1",
+    "@antfu/eslint-config": "^4.17.0",
+    "@antfu/ni": "^25.0.0",
+    "@antfu/utils": "^9.2.0",
+    "@types/node": "^22.16.5",
+    "@types/vscode": "^1.102.0",
+    "@vscode/vsce": "^3.6.0",
+    "bumpp": "^10.2.0",
+    "eslint": "^9.31.0",
+    "esno": "^4.8.0",
+    "fast-glob": "^3.3.3",
+    "lint-staged": "^16.1.2",
+    "pnpm": "^10.13.1",
     "reactive-vscode": "0.2.0-beta.9",
     "rimraf": "^5.0.10",
-    "simple-git-hooks": "^2.11.1",
-    "taze": "^0.16.6",
-    "tsup": "^8.2.4",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.2",
-    "vitest": "^2.0.5"
+    "simple-git-hooks": "^2.13.0",
+    "taze": "^19.1.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.5",
+    "vitest": "^3.2.4"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

@@ -1,6 +1,6 @@
+import type { WhichKeyItem } from '../src/types'
 import { describe, expect, it } from 'vitest'
 import { findParent } from '../src/utils'
-import type { WhichKeyItem } from '../src/types'
 
 const whichKeyKeybindings: WhichKeyItem[] = [
   {
