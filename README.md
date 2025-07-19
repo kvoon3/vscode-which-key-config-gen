@@ -12,7 +12,7 @@ Generate vscode which-key config automatically
 ## Usage
 
 1. enable `vscode-whichkey-config-gen`
-2. add a `names` field to your `vim.normalModeKeyBindingsNonRecursive` (generate which-key hint title)
+2. add a `names` field to your vim keybinding (for generate which-key hint title)
 3. replace the keymap `whichkey.show` with `whichKeyConfigGen.show`
 
 And then simply remove your old which-key configs
@@ -40,7 +40,7 @@ And then simply remove your old which-key configs
 -     ]
 -   }
 - ],
-  "vim.normalModeKeyBindingsNonRecursive": [
+  "vim.normalModeKeyBindings": [
     {
       // I prefer use leader twice to avoid overlap with Vim keymap, and you can still use one leader
       "before": ["leader", "leader"],
