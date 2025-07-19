@@ -73,6 +73,7 @@
     "publish": "vsce publish --no-dependencies",
     "pack": "vsce package --no-dependencies",
     "test": "vitest",
+    "prepare": "nr update",
     "typecheck": "tsc --noEmit",
     "release": "bumpp && nr publish",
     "update": "nlx vscode-ext-gen --output ./src/generated/meta.ts --scope whichKeyConfigGen",
