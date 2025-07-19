@@ -65,12 +65,11 @@ export function vim2whichkey(vimKeybindings: VimKeybinding[]): WhichKeyItem[] {
   return vimKeybindings
     .filter(keybinding =>
       !keybinding?.commands?.includes('whichkey.show')
-      && !keybinding?.commands?.includes('whichKeyConfigGen.show')
-      && keybinding.before[0] === 'leader',
+      && !keybinding?.commands?.includes('whichKeyConfigGen.show'),
     )
     .reduce((whichKeyBindings, vimKeybinding) => {
       const { before: keys, commands, names } = vimKeybinding
-      const [_, ...keys4bind] = keys
+      const keys4bind = keys[0] === 'leader' ? keys.slice(1) : keys
 
       const { parent, restKeys, restNames } = findParent(whichKeyBindings, keys4bind, 'root', names)
 
