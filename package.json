@@ -45,11 +45,6 @@
         "category": "Which Key Config Generator"
       },
       {
-        "title": "Update Config",
-        "command": "whichKeyConfigGen.updateConfig",
-        "category": "Which Key Config Generator"
-      },
-      {
         "title": "Toggle Enable",
         "command": "whichKeyConfigGen.toggleEnable",
         "category": "Which Key Config Generator"
@@ -63,18 +58,6 @@
           "type": "boolean",
           "default": true,
           "description": "Enable which-key config generator"
-        },
-        "whichKeyConfigGen.normalModeNonRecursiveKeybindings": {
-          "type": "array",
-          "items": "object",
-          "default": [],
-          "description": "Generated code, do not modify"
-        },
-        "whichKeyConfigGen.visualModeNonRecursiveKeybindings": {
-          "type": "array",
-          "items": "object",
-          "default": [],
-          "description": "Generated code, do not modify"
         }
       }
     }

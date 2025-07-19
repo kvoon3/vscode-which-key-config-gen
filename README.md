@@ -67,7 +67,6 @@ And then simply remove your old which-key configs
 | Command                          | Title                                     |
 | -------------------------------- | ----------------------------------------- |
 | `whichKeyConfigGen.show`         | Which Key Config Generator: Show Menu     |
-| `whichKeyConfigGen.updateConfig` | Which Key Config Generator: Update Config |
 | `whichKeyConfigGen.toggleEnable` | Which Key Config Generator: Toggle Enable |
 
 <!-- commands -->
@@ -76,11 +75,9 @@ And then simply remove your old which-key configs
 
 <!-- configs -->
 
-| Key                                                   | Description                       | Type      | Default |
-| ----------------------------------------------------- | --------------------------------- | --------- | ------- |
-| `whichKeyConfigGen.enable`                            | Enable which-key config generator | `boolean` | `true`  |
-| `whichKeyConfigGen.normalModeNonRecursiveKeybindings` | Generated code, do not modify     | `array`   | `[]`    |
-| `whichKeyConfigGen.visualModeNonRecursiveKeybindings` | Generated code, do not modify     | `array`   | `[]`    |
+| Key                        | Description                       | Type      | Default |
+| -------------------------- | --------------------------------- | --------- | ------- |
+| `whichKeyConfigGen.enable` | Enable which-key config generator | `boolean` | `true`  |
 
 <!-- configs -->
 

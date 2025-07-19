@@ -4,7 +4,6 @@ import type { VimKeybinding } from './types'
 import { vim2whichkey } from './utils'
 import * as Meta from './generated/meta'
 import { configs } from './configs'
-import { logger } from './logger'
 
 function useVimConfigs() {
   const activeTextEditor = useActiveTextEditor()
@@ -37,10 +36,8 @@ export const { activate, deactivate } = defineExtension(async () => {
   const vimKeybindings = useVimConfigs()
   useCommand(Meta.commands.show, () => {
     const whichkey = vim2whichkey(vimKeybindings.value)
-    logger.log('whichkey', whichkey)
 
     commands.executeCommand('whichkey.show', whichkey)
   })
-  // useCommand(Meta.commands.updateConfig, async () => await updateConfig())
   useCommand(Meta.commands.toggleEnable, async () => configs.enable.value = !configs.enable.value)
 })
