@@ -16,7 +16,7 @@
           "background": {
             "activeOnStart": true,
             "beginsPattern": "Build start",
-            "endsPattern": "Build success"
+            "endsPattern": "(Bu|Re)ild complete"
           }
         }
       ],
