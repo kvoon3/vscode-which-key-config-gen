@@ -80,6 +80,9 @@
     "up": "taze -I major",
     "postinstall": "npx simple-git-hooks"
   },
+  "dependencies": {
+    "vimrc-parser": "^0.0.1"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^4.17.0",
     "@antfu/ni": "^25.0.0",

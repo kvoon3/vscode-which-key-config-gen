@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      vimrc-parser:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^4.17.0
@@ -3225,6 +3229,9 @@ packages:
   version-range@4.14.0:
     resolution: {integrity: sha512-gjb0ARm9qlcBAonU4zPwkl9ecKkas+tC2CGwFfptTCWWIVTWY1YUbT2zZKsOAF1jR/tNxxyLwwG0cb42XlYcTg==}
     engines: {node: '>=4'}
+
+  vimrc-parser@0.0.1:
+    resolution: {integrity: sha512-7hcjuC/eH65kA28ENrAc/rpyp6q/pPfpiyR5OBM2j8VtG02S1uzVn3jkTIgSCBCPsxhFDuroI+r/SqWC0VtX8g==}
 
   vite-node@3.2.4:
     resolution: {integrity: sha512-EbKSKh+bh1E1IFxeO0pg1n4dvoOTt0UDiXMd/qn++r98+jPO1xtJilvXldeuQ8giIB5IkpjCgMleHMNEsGH6pg==}
@@ -6873,6 +6880,12 @@ snapshots:
       spdx-expression-parse: 3.0.1
 
   version-range@4.14.0: {}
+
+  vimrc-parser@0.0.1:
+    dependencies:
+      bumpp: 10.2.0
+    transitivePeerDependencies:
+      - magicast
 
   vite-node@3.2.4(@types/node@22.16.5)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.8.0):
     dependencies:

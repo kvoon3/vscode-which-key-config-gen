@@ -1,4 +1,5 @@
-import type { VimKeybinding, WhichKeyBinding, WhichKeyCommand, WhichKeyItem } from './types'
+import type { VimKeybinding } from 'vimrc-parser'
+import type { WhichKeyBinding, WhichKeyCommand, WhichKeyItem } from './types'
 
 const isBinding = (item: WhichKeyItem): item is WhichKeyBinding => item.type === 'bindings'
 const isCommand = (item: WhichKeyItem): item is WhichKeyCommand => item.type === 'command' || item.type === 'commands'
@@ -68,8 +69,8 @@ export function vimToWhichKey(vimKeybindings: VimKeybinding[]): WhichKeyItem[] {
       && !keybinding?.commands?.includes('whichKeyConfigGen.show'),
     )
     .reduce((whichKeyBindings, vimKeybinding) => {
-      const { before: keys, commands, names } = vimKeybinding
-      const keys4bind = keys[0] === 'leader' ? keys.slice(1) : keys
+      const { before, commands = [], names = [] } = vimKeybinding
+      const keys4bind = before[0] === 'leader' ? before.slice(1) : before
 
       const { parent, restKeys, restNames } = findParent(whichKeyBindings, keys4bind, 'root', names)
 

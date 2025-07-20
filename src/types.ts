@@ -20,9 +20,9 @@ export interface WhichKeyBinding {
 
 export type WhichKeyItem = WhichKeyBinding | WhichKeyCommand | WhichKeyCommands
 
-export interface VimKeybinding {
-  before: string[]
-  commands: string[]
-  // custom attr
-  names?: string[]
-}
+// export interface VimKeybinding {
+//   before: string[]
+//   commands: string[]
+//   // custom attr
+//   names?: string[]
+// }
