@@ -61,7 +61,7 @@ export function genWhichKeyTree(keys: string[], commands: string[], names: strin
       }
 }
 
-export function vim2whichkey(vimKeybindings: VimKeybinding[]): WhichKeyItem[] {
+export function vimToWhichKey(vimKeybindings: VimKeybinding[]): WhichKeyItem[] {
   return vimKeybindings
     .filter(keybinding =>
       !keybinding?.commands?.includes('whichkey.show')

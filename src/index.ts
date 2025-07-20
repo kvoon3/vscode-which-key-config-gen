@@ -3,7 +3,7 @@ import { computed, defineExtension, useActiveTextEditor, useCommand, useTextEdit
 import { commands, workspace } from 'vscode'
 import { configs } from './configs'
 import * as Meta from './generated/meta'
-import { vim2whichkey } from './utils'
+import { vimToWhichKey } from './utils'
 
 export const { activate, deactivate } = defineExtension(async () => {
   useCommand(Meta.commands.show, () => {
@@ -34,7 +34,7 @@ export function getWhichkeyConfig() {
     ],
   }
 
-  return vim2whichkey(modeNameMap[vimMode.value]
+  return vimToWhichKey(modeNameMap[vimMode.value]
     .flatMap(i => workspace.getConfiguration('vim').inspect<VimKeybinding[]>(i)?.globalValue || [])
     .filter(i => i.names?.length))
 }

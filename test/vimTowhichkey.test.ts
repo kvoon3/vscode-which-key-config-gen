@@ -1,7 +1,7 @@
 import { basename } from 'node:path'
 import fg from 'fast-glob'
 import { describe, expect, it } from 'vitest'
-import { vim2whichkey } from '../src/utils'
+import { vimToWhichKey } from '../src/utils'
 
 describe('which key', async () => {
   const filePaths = await fg(['./fixtures/*'])
@@ -11,8 +11,8 @@ describe('which key', async () => {
       const nnoremap = settingsJson['vim.normalModeKeyBindingsNonRecursive'] || []
       const vnoremap = settingsJson['vim.visualModeKeyBindingsNonRecursive'] || []
       const output = {
-        normal: vim2whichkey(nnoremap),
-        visual: vim2whichkey(vnoremap),
+        normal: vimToWhichKey(nnoremap),
+        visual: vimToWhichKey(vnoremap),
       }
       expect(JSON.stringify(output, null, 2)).toMatchFileSnapshot(`./.output/${basename(filePath)}`)
     })
