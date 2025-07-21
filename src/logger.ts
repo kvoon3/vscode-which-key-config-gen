@@ -7,7 +7,7 @@ export const logger = {
   ..._logger,
   log(...args: any[]) {
     for (const arg of args) {
-      logger.info('arg', JSON.stringify(arg, null, 2))
+      logger.info(JSON.stringify(arg, null, 2))
     }
   },
 }
