@@ -1,4 +1,14 @@
 {
-  "normal": [],
-  "visual": []
+  "normal": [
+    {
+      "before": [
+        "leader"
+      ],
+      "commands": [
+        "whichkey.show"
+      ]
+    }
+  ],
+  "visual": [],
+  "insert": []
 }

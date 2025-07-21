@@ -1,8 +1,8 @@
-import type { VSCodeVimMode } from 'vimrc-parser'
 import { computed, defineExtension, useActiveTextEditor, useCommand, useTextEditorSelection } from 'reactive-vscode'
 import { parseVimrc } from 'vimrc-parser'
 import { commands, workspace } from 'vscode'
 import { configs } from './configs'
+import { modeVimConfigMap } from './constants'
 import * as Meta from './generated/meta'
 import { vimToWhichKey } from './utils'
 
@@ -18,24 +18,7 @@ export function getWhichkeyConfig() {
   const activeTextEditor = useActiveTextEditor()
   const selection = useTextEditorSelection(activeTextEditor)
 
-  type Mode = 'normal' | 'visual' | 'insert'
-
   const vimMode = computed(() => selection.value.isEmpty ? 'normal' : 'visual')
-
-  const modeVimConfigMap: Record<Mode, VSCodeVimMode[]> = {
-    normal: [
-      'normalModeKeyBindings',
-      'normalModeKeyBindingsNonRecursive',
-    ],
-    visual: [
-      'visualModeKeyBindings',
-      'visualModeKeyBindingsNonRecursive',
-    ],
-    insert: [
-      'insertModeKeyBindings',
-      'insertModeKeyBindingsNonRecursive',
-    ],
-  }
 
   const vimConfig = workspace.getConfiguration('vim')
 

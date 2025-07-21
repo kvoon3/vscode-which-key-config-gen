@@ -1,80 +1,211 @@
 {
   "normal": [
     {
-      "key": "c",
-      "type": "bindings",
-      "name": "Changes...",
-      "bindings": [
-        {
-          "key": "p",
-          "type": "command",
-          "name": "Previous Changes...",
-          "command": "workbench.action.editor.previousChange"
-        },
-        {
-          "key": "N",
-          "type": "command",
-          "name": "Previous Changes...",
-          "command": "workbench.action.editor.previousChange"
-        },
-        {
-          "key": "n",
-          "type": "command",
-          "name": "Next Changes...",
-          "command": "workbench.action.editor.nextChange"
-        }
+      "before": [
+        "leader",
+        "leader"
+      ],
+      "commands": [
+        "whichKeyConfigGen.show"
       ]
     },
     {
-      "key": "e",
-      "type": "bindings",
-      "name": "Errors...",
-      "bindings": [
-        {
-          "key": "n",
-          "type": "command",
-          "name": "Next Errors...",
-          "command": "go-to-next-error.next.error"
-        },
-        {
-          "key": "N",
-          "type": "command",
-          "name": "Previous Errors...",
-          "command": "go-to-next-error.prev.error"
-        },
-        {
-          "key": "p",
-          "type": "command",
-          "name": "Previous Errors...",
-          "command": "go-to-next-error.prev.error"
-        }
+      "before": [
+        "leader",
+        "c",
+        "p"
+      ],
+      "names": [
+        "Changes...",
+        "Previous Changes..."
+      ],
+      "commands": [
+        "workbench.action.editor.previousChange"
       ]
     },
     {
-      "key": "w",
-      "type": "bindings",
-      "name": "Warnings...",
-      "bindings": [
-        {
-          "key": "n",
-          "type": "command",
-          "name": "Next Warnings...",
-          "command": "go-to-next-error.next.warning"
-        },
-        {
-          "key": "N",
-          "type": "command",
-          "name": "Previous Warnings...",
-          "command": "go-to-next-error.prev.warning"
-        },
-        {
-          "key": "p",
-          "type": "command",
-          "name": "Previous Warnings...",
-          "command": "go-to-next-error.prev.warning"
-        }
+      "before": [
+        "leader",
+        "c",
+        "N"
+      ],
+      "names": [
+        "Changes...",
+        "Previous Changes..."
+      ],
+      "commands": [
+        "workbench.action.editor.previousChange"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "c",
+        "n"
+      ],
+      "names": [
+        "Changes...",
+        "Next Changes..."
+      ],
+      "commands": [
+        "workbench.action.editor.nextChange"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "e",
+        "n"
+      ],
+      "names": [
+        "Errors...",
+        "Next Errors..."
+      ],
+      "commands": [
+        "go-to-next-error.next.error"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "e",
+        "N"
+      ],
+      "names": [
+        "Errors...",
+        "Previous Errors..."
+      ],
+      "commands": [
+        "go-to-next-error.prev.error"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "e",
+        "p"
+      ],
+      "names": [
+        "Errors...",
+        "Previous Errors..."
+      ],
+      "commands": [
+        "go-to-next-error.prev.error"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "w",
+        "n"
+      ],
+      "names": [
+        "Warnings...",
+        "Next Warnings..."
+      ],
+      "commands": [
+        "go-to-next-error.next.warning"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "w",
+        "N"
+      ],
+      "names": [
+        "Warnings...",
+        "Previous Warnings..."
+      ],
+      "commands": [
+        "go-to-next-error.prev.warning"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "w",
+        "p"
+      ],
+      "names": [
+        "Warnings...",
+        "Previous Warnings..."
+      ],
+      "commands": [
+        "go-to-next-error.prev.warning"
+      ]
+    },
+    {
+      "after": [
+        "i"
+      ],
+      "before": [
+        "i"
+      ],
+      "commands": [
+        "autoHide.runHide"
+      ],
+      "silent": true
+    },
+    {
+      "before": [
+        "g",
+        "p",
+        "d"
+      ],
+      "commands": [
+        "editor.action.peekDefinition"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "i"
+      ],
+      "commands": [
+        "editor.action.goToImplementation"
+      ],
+      "keys": "gi"
+    },
+    {
+      "before": [
+        "g",
+        "p",
+        "i"
+      ],
+      "commands": [
+        "editor.action.peekImplementation"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "r"
+      ],
+      "commands": [
+        "editor.action.referenceSearch.trigger"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "t"
+      ],
+      "commands": [
+        "editor.action.goToTypeDefinition"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "p",
+        "t"
+      ],
+      "commands": [
+        "editor.action.peekTypeDefinition"
       ]
     }
   ],
-  "visual": []
+  "visual": [],
+  "insert": []
 }

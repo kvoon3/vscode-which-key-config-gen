@@ -1,22 +1,16 @@
 {
   "normal": [
     {
-      "key": "a",
-      "type": "commands",
+      "before": [
+        "leader",
+        "a"
+      ],
       "commands": [
         "command 1",
         "command 2"
       ]
     }
   ],
-  "visual": [
-    {
-      "key": "i",
-      "type": "commands",
-      "commands": [
-        "command 3",
-        "command 4"
-      ]
-    }
-  ]
+  "visual": [],
+  "insert": []
 }

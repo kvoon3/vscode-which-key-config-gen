@@ -1,26 +1,36 @@
 {
   "normal": [
     {
-      "key": "c",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "p",
-          "type": "command",
-          "command": "workbench.action.editor.previousChange"
-        },
-        {
-          "key": "N",
-          "type": "command",
-          "command": "workbench.action.editor.previousChange"
-        },
-        {
-          "key": "n",
-          "type": "command",
-          "command": "workbench.action.editor.nextChange"
-        }
+      "before": [
+        "leader",
+        "c",
+        "p"
+      ],
+      "commands": [
+        "workbench.action.editor.previousChange"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "c",
+        "N"
+      ],
+      "commands": [
+        "workbench.action.editor.previousChange"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "c",
+        "n"
+      ],
+      "commands": [
+        "workbench.action.editor.nextChange"
       ]
     }
   ],
-  "visual": []
+  "visual": [],
+  "insert": []
 }
